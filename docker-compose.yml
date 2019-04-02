@@ -7,12 +7,12 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - rent_db:/var/lib/pgsql/data
+      - mtstest_db:/var/lib/pgsql/data
     environment:
-      - POSTGRES_DB=mts_db
+      - POSTGRES_DB=mtstest_db
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/pgsql/data
 
 volumes:
-  rent_db:
+  mtstest_db:
