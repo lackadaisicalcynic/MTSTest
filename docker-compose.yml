@@ -9,7 +9,7 @@ services:
     volumes:
       - rent_db:/var/lib/pgsql/data
     environment:
-      - POSTGRES_DB=rent_db
+      - POSTGRES_DB=mts_db
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/pgsql/data
