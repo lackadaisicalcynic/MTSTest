@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - rent_db:/var/lib/pgsql/data
+    environment:
+      - POSTGRES_DB=rent_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - PGDATA=/var/lib/pgsql/data
+
+volumes:
+  rent_db:
