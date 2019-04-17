@@ -7,8 +7,8 @@ import javax.persistence.Enumerated;
 
 @Data
 public class SignUpData {
-    String username;
-    String password;
+    private String username;
+    private String password;
     @Enumerated
-    Role role;
+    private Role role;
 }
