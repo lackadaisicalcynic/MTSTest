@@ -18,4 +18,5 @@ public class UserProfile {
     String password;
     @Enumerated
     Role role;
+    private String name;
 }

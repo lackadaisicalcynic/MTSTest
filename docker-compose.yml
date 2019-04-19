@@ -14,5 +14,38 @@ services:
       - POSTGRES_PASSWORD=password
       - PGDATA=/var/lib/pgsql/data
 
+
+  logstash:
+    image: logstash
+    restart: on-failure
+    ports:
+      - 25681:25681
+    volumes:
+      - logs:/log
+    links:
+      - elasticsearch
+    build:
+      context: ./
+      dockerfile: Dockerfile-logstash
+
+  elasticsearch:
+    image: elasticsearch:5
+    restart: on-failure
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+
+  kibana:
+    image: kibana:5.5.2
+    restart: on-failure
+    ports:
+      - 5601:5601
+    links:
+      - elasticsearch
+
 volumes:
   mtstest_db:
+  logs:
+
+

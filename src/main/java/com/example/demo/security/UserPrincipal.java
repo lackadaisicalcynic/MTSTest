@@ -31,8 +31,7 @@ public class UserPrincipal implements UserDetails {
     }
 
     public static UserPrincipal create(UserProfile user) {
-        List<GrantedAuthority> authorities = Collections.
-                singletonList(new SimpleGrantedAuthority("USER"));
+        List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
 
         return new UserPrincipal(
                 user.getId(),

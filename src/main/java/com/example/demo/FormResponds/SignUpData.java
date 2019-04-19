@@ -11,4 +11,5 @@ public class SignUpData {
     private String password;
     @Enumerated
     private Role role;
+    private String name;
 }

@@ -2,8 +2,9 @@ package com.example.demo.controllers;
 
 import com.example.demo.FormResponds.LoginData;
 import com.example.demo.security.JwtTokenProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,10 +20,12 @@ public class LogInController {
     JwtTokenProvider tokenProvider;
     @Autowired
     AuthenticationManager authenticationManager;
+    private static final Logger logger = LoggerFactory.getLogger(SignUpController.class);
+
 
     @PostMapping("/login")
     public String authenticateUser(@RequestBody LoginData loginRequest) {
-
+        logger.info("Logging a user with username: " + loginRequest.getUsername());
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getUsername(),

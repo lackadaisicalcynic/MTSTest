@@ -11,4 +11,5 @@ public interface ItemRepository extends JpaRepository<ItemProfile, Long> {
     List<ItemProfile> findAllByCategory(String category);
     ItemProfile findItemProfileByName(String name);
     void deleteItemProfileByName(String name);
+    boolean existsByName(String name);
 }
